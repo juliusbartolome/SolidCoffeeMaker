@@ -4,8 +4,16 @@ using System.Text;
 
 namespace SolidCoffeeMaker
 {
-    public class PressureReliefValve
+    public class PressureReliefValve: OpenCloseAdapter
     {
-        public bool IsOpen { get; set; } = true;
+        protected override bool IsOpen { get; set; }
+
+        protected override void Close()
+        {
+        }
+
+        protected override void Open()
+        {
+        }
     }
 }

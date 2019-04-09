@@ -4,10 +4,10 @@ using System.Text;
 
 namespace SolidCoffeeMaker
 {
-    public class Pot
+    public interface IOnOffDevice
     {
-        public bool IsEmpty { get; private set; }
-
-
+        bool IsOn { get; }
+        void Off();
+        void On();
     }
 }

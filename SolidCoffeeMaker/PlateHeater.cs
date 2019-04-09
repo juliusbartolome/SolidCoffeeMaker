@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SolidCoffeeMaker
 {
-    public class BoilerHeater: IOnOffDevice
+    public class PlateHeater : IOnOffDevice
     {
         public bool IsOn { get; private set; }
 
