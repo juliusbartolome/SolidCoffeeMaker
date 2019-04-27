@@ -1,6 +1,6 @@
 ﻿namespace SolidCoffeeMaker
 {
-    public enum BrewButtonState
+    public enum BrewButtonStatus
     {
         IsNotPushed,
         IsPushed

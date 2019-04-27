@@ -3,8 +3,8 @@ namespace SolidCoffeeMaker
 {
     public interface IOnOffDevice
     {
-        void TurnOn();
-        void TurnOff();
+        void On();
+        void Off();
         bool IsOn();
     }
 }

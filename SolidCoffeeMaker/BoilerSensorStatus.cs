@@ -1,6 +1,6 @@
 ﻿namespace SolidCoffeeMaker
 {
-    public enum BoilerSensorState
+    public enum BoilerSensorStatus
     {
         BoilerEmpty,
         BoilerNotEmpty
