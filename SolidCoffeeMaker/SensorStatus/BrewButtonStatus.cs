@@ -1,4 +1,4 @@
-﻿namespace SolidCoffeeMaker.CoffeeMakerStatuses
+﻿namespace SolidCoffeeMaker.SensorStatus
 {
     public enum BrewButtonStatus
     {
