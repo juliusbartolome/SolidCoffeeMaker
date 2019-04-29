@@ -1,4 +1,4 @@
-﻿namespace SolidCoffeeMaker
+﻿namespace SolidCoffeeMaker.CoffeeMakerStatuses
 {
     public enum WarmerPlateStatus
     {
