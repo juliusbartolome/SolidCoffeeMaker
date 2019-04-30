@@ -2,7 +2,7 @@
 
 namespace SolidCoffeeMaker
 {
-    public interface ICoffeeMakerComponent: ICoffeeMaker
+    public interface ICoffeeMakerComponent
     {
         void StartBrewing();
         void InterruptBrewing();
