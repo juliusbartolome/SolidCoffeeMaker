@@ -1,15 +1,17 @@
-﻿namespace SolidCoffeeMaker.CoffeeMakerStatus
+﻿using System;
+
+namespace SolidCoffeeMaker.CoffeeMakerStatus
 {
-    public class BoilerWaterRefilledState : ICoffeeMakerStatus
+    public class BoilerWaterRefilledState : ICoffeeMaker
     {
-        public ICoffeeMakerStatus EmptyBoilerWater() => new BoilerWaterEmptyState();
+        public ICoffeeMaker EmptyBoilerWater() => new BoilerWaterEmptyState();
 
-        public ICoffeeMakerStatus FinishBrewing() => this;
+        public ICoffeeMaker FinishBrewing() => this;
 
-        public ICoffeeMakerStatus InterruptBrewing() => this;
+        public ICoffeeMaker InterruptBrewing() => this;
 
-        public ICoffeeMakerStatus RefillBoilerWater() => this;
+        public ICoffeeMaker RefillBoilerWater() => this;
 
-        public ICoffeeMakerStatus StartBrewing() => new CoffeeMakerBrewingState();
+        public ICoffeeMaker StartBrewing() => new CoffeeMakerBrewingState();
     }
 }
