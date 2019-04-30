@@ -1,17 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SolidCoffeeMaker.CoffeeMakerStatus
 {
     public class CoffeeMakerBrewingState : ICoffeeMaker
     {
-        public ICoffeeMaker EmptyBoilerWater() => new BoilerWaterEmptyState();
+        public ICoffeeMaker EmptyBoilerWater(IReadOnlyList<ICoffeeMakerComponent> components)
+        {
+            foreach (var component in components)
+                component.EmptyBoilerWater();
 
-        public ICoffeeMaker FinishBrewing() => new BoilerWaterEmptyState();
+            return new BoilerWaterEmptyState();
+        }
 
-        public ICoffeeMaker InterruptBrewing() => new BoilerWaterRefilledState();
+        public ICoffeeMaker FinishBrewing(IReadOnlyList<ICoffeeMakerComponent> components)
+        {
+            foreach (var component in components)
+                component.FinishBrewing();
 
-        public ICoffeeMaker RefillBoilerWater() => this;
+            return new BoilerWaterEmptyState();
+        }
 
-        public ICoffeeMaker StartBrewing() => this;
+        public ICoffeeMaker InterruptBrewing(IReadOnlyList<ICoffeeMakerComponent> components)
+        {
+            foreach (var component in components)
+                component.InterruptBrewing();
+
+            return new BoilerWaterRefilledState();
+        }
+
+        public ICoffeeMaker RefillBoilerWater(IReadOnlyList<ICoffeeMakerComponent> components) => this;
+
+        public ICoffeeMaker StartBrewing(IReadOnlyList<ICoffeeMakerComponent> components) => this;
     }
 }
