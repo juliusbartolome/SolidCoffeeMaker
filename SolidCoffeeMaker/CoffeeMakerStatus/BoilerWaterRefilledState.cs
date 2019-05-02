@@ -16,7 +16,7 @@ namespace SolidCoffeeMaker.CoffeeMakerStatus
             return new BoilerWaterEmptyState(this.Components);
         }
 
-        public ICoffeeMaker StartBrewing()
+        public override ICoffeeMaker StartBrewing()
         {
             foreach (var component in this.Components)
                 component.StartBrewing();
