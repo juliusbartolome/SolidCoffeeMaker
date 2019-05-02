@@ -13,5 +13,9 @@ namespace SolidCoffeeMaker
         public override void EmptyBoilerWater() => this.boilerDevice.Off();
 
         public override void StartBrewing() => this.boilerDevice.On();
+
+        public override void InterruptBrewing() => this.boilerDevice.Off();
+
+        public override void FinishBrewing() => this.boilerDevice.Off();
     }
 }
