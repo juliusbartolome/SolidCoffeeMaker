@@ -1,6 +1,6 @@
 ﻿namespace SolidCoffeeMaker
 {
-    public class IndicatorComponent : BaseCoffeeMakerComponent, ICoffeeMakerComponent
+    public class IndicatorComponent : BaseCoffeeMakerComponent
     {
         private readonly IOnOffDevice indicatorDevice;
 

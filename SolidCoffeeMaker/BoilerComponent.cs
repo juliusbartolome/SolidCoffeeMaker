@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SolidCoffeeMaker
 {
-    public class BoilerComponent : BaseCoffeeMakerComponent, ICoffeeMakerComponent
+    public class BoilerComponent : BaseCoffeeMakerComponent
     {
         private IOnOffDevice boilerDevice;
 
