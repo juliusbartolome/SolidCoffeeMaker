@@ -7,10 +7,9 @@ using Xunit;
 
 namespace SolidCoffeeMakerTests
 {
-    public class ReliefValveComponentTests
+    public class ReliefValveComponentTests: BaseCoffeeMakerComponentTests
     {
         private readonly Mock<IOpenCloseDevice> reliefValveDeviceMock;
-        private readonly ReliefValveComponent sut;
 
         public ReliefValveComponentTests()
         {
@@ -40,18 +39,6 @@ namespace SolidCoffeeMakerTests
             this.sut.InterruptBrewing();
 
             this.reliefValveDeviceMock.Verify(rv => rv.Open(), Times.Once);
-        }
-
-        [Fact(DisplayName = "Empty Boiler should not throw a not implemented exception")]
-        public void EmptyBoilerWater_ShouldNot_Throw_NotImplementedException()
-        {
-            this.sut.EmptyBoilerWater();
-        }
-
-        [Fact(DisplayName = "Refill Boiler Water should not throw a not implemented exception")]
-        public void RefillBoilerWater_ShouldNot_Throw_NotImplementedException()
-        {
-            this.sut.RefillBoilerWater();
         }
     }
 }

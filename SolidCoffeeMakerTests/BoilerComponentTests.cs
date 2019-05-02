@@ -4,10 +4,9 @@ using Xunit;
 
 namespace SolidCoffeeMakerTests
 {
-    public class BoilerComponentTests
+    public class BoilerComponentTests: BaseCoffeeMakerComponentTests
     {
         private readonly Mock<IOnOffDevice> boilerDevice;
-        private readonly BoilerComponent sut;
 
         public BoilerComponentTests()
         {
