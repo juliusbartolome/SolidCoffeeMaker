@@ -4,23 +4,14 @@ using System.Text;
 
 namespace SolidCoffeeMaker
 {
-    public class BoilerComponent : ICoffeeMakerComponent
+    public class BoilerComponent : BaseCoffeeMakerComponent, ICoffeeMakerComponent
     {
         private IOnOffDevice boilerDevice;
 
-        public BoilerComponent(IOnOffDevice boilerDevice)
-        {
-            this.boilerDevice = boilerDevice;
-        }
+        public BoilerComponent(IOnOffDevice boilerDevice) => this.boilerDevice = boilerDevice;
 
-        public void EmptyBoilerWater() => this.boilerDevice.Off();
+        public override void EmptyBoilerWater() => this.boilerDevice.Off();
 
-        public void FinishBrewing() { }
-
-        public void InterruptBrewing() { }
-
-        public void RefillBoilerWater() { }
-
-        public void StartBrewing() => this.boilerDevice.On();
+        public override void StartBrewing() => this.boilerDevice.On();
     }
 }

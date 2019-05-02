@@ -9,10 +9,7 @@ namespace SolidCoffeeMaker
     {
         private readonly ICoffeeMaker coffeeMakerStatus;
 
-        public CoffeeMakerObserver(ICoffeeMaker coffeeMakerStatus)
-        {
-            this.coffeeMakerStatus = coffeeMakerStatus;
-        }
+        public CoffeeMakerObserver(ICoffeeMaker coffeeMakerStatus) => this.coffeeMakerStatus = coffeeMakerStatus;
 
         public void OnCompleted() { }
 
