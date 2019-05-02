@@ -8,12 +8,10 @@ namespace SolidCoffeeMaker
     public class CoffeeMakerObserver : IObserver<BoilerSensorStatus>, IObserver<WarmerPlateStatus>, IObserver<BrewButtonStatus>
     {
         private readonly ICoffeeMaker coffeeMakerStatus;
-        private readonly IReadOnlyList<ICoffeeMakerComponent> components;
 
-        public CoffeeMakerObserver(IReadOnlyList<ICoffeeMakerComponent> components, ICoffeeMaker coffeeMakerStatus)
+        public CoffeeMakerObserver(ICoffeeMaker coffeeMakerStatus)
         {
             this.coffeeMakerStatus = coffeeMakerStatus;
-            this.components = components;
         }
 
         public void OnCompleted() { }
@@ -23,23 +21,23 @@ namespace SolidCoffeeMaker
         public void OnNext(BrewButtonStatus value)
         {
             if (value == BrewButtonStatus.IsPushed)
-                this.coffeeMakerStatus.StartBrewing(components);
+                this.coffeeMakerStatus.StartBrewing();
         }
 
         public void OnNext(WarmerPlateStatus value)
         {
             if (value == WarmerPlateStatus.WarmerEmpty)
-                this.coffeeMakerStatus.InterruptBrewing(components);
+                this.coffeeMakerStatus.InterruptBrewing();
             else
-                this.coffeeMakerStatus.StartBrewing(components);
+                this.coffeeMakerStatus.StartBrewing();
         }
 
         public void OnNext(BoilerSensorStatus value)
         {
             if (value == BoilerSensorStatus.BoilerNotEmpty)
-                this.coffeeMakerStatus.RefillBoilerWater(components);
+                this.coffeeMakerStatus.RefillBoilerWater();
             else
-                this.coffeeMakerStatus.EmptyBoilerWater(components);
+                this.coffeeMakerStatus.EmptyBoilerWater();
         }
     }
 }

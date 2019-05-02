@@ -4,22 +4,17 @@ using System.Linq;
 
 namespace SolidCoffeeMaker.CoffeeMakerStatus
 {
-    public class BoilerWaterEmptyState : ICoffeeMaker
+    public class BoilerWaterEmptyState : BaseCoffeeMakerState, ICoffeeMaker
     {
-        public ICoffeeMaker FinishBrewing(IReadOnlyList<ICoffeeMakerComponent> components) => this;
+        public BoilerWaterEmptyState(IReadOnlyList<ICoffeeMakerComponent> components)
+            : base(components) { }
 
-        public ICoffeeMaker InterruptBrewing(IReadOnlyList<ICoffeeMakerComponent> components) => this;
-
-        public ICoffeeMaker RefillBoilerWater(IReadOnlyList<ICoffeeMakerComponent> components)
+        public override ICoffeeMaker RefillBoilerWater()
         {
-            foreach (var component in components)
+            foreach (var component in this.Components)
                 component.RefillBoilerWater();
 
-            return new BoilerWaterRefilledState();
+            return new BoilerWaterRefilledState(this.Components);
         }
-
-        public ICoffeeMaker StartBrewing(IReadOnlyList<ICoffeeMakerComponent> components) => this;
-
-        ICoffeeMaker ICoffeeMaker.EmptyBoilerWater(IReadOnlyList<ICoffeeMakerComponent> components) => this;
     }
 }
